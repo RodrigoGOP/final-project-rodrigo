@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   post("/insert_video", { :controller => "videos", :action => "create" })
           
   # READ
+  get("/", { :controller => "videos", :action => "index" })
   get("/videos", { :controller => "videos", :action => "index" })
   
   get("/videos/:path_id", { :controller => "videos", :action => "show" })
