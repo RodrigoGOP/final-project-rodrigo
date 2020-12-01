@@ -1,0 +1,148 @@
+<div>
+  <div>
+    <h1>
+      List of all videos
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new video
+    </h2>
+
+    <form action="/insert_video" method="post">
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id">
+      </div>
+
+      <div>
+        <label for="video_box">
+          Video
+        </label>
+
+        <input type="text" id="video_box" name="query_video">
+      </div>
+
+      <div>
+        <label for="caption_box">
+          Caption
+        </label>
+
+        <textarea id="caption_box" name="query_caption" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="views_box">
+          Views
+        </label>
+
+        <input type="text" id="views_box" name="query_views">
+      </div>
+
+      <div>
+        <input type="checkbox" id="viewed_by_user_box" name="query_viewed_by_user" value="1">
+
+        <label for="viewed_by_user_box">Viewed by user</label>
+      </div>
+
+      <button>
+        Create video
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Owner
+        </th>
+
+        <th>
+          Video
+        </th>
+
+        <th>
+          Caption
+        </th>
+
+        <th>
+          Views
+        </th>
+
+        <th>
+          Viewed by user
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_videos.each do |a_video| %>
+      <tr>
+        <td>
+          <%= a_video.id %>
+        </td>
+
+        <td>
+          <%= a_video.owner_id %>
+        </td>
+
+        <td>
+          <%= a_video.video %>
+        </td>
+
+        <td>
+          <%= a_video.caption %>
+        </td>
+
+        <td>
+          <%= a_video.views %>
+        </td>
+
+        <td>
+          <%= a_video.viewed_by_user %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_video.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_video.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/videos/<%= a_video.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

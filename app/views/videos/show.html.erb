@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Video #<%= @the_video.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/videos">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_video/<%= @the_video.id %>">
+          Delete video
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Owner
+      </dt>
+      <dd>
+        <%= @the_video.owner_id %>
+      </dd>
+
+      <dt>
+        Video
+      </dt>
+      <dd>
+        <%= @the_video.video %>
+      </dd>
+
+      <dt>
+        Caption
+      </dt>
+      <dd>
+        <%= @the_video.caption %>
+      </dd>
+
+      <dt>
+        Views
+      </dt>
+      <dd>
+        <%= @the_video.views %>
+      </dd>
+
+      <dt>
+        Viewed by user
+      </dt>
+      <dd>
+        <%= @the_video.viewed_by_user %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_video.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_video.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit video
+    </h2>
+
+    <form action="/modify_video/<%= @the_video.id %>"  method="post" >
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id" value="<%= @the_video.owner_id %>">
+      </div>
+
+      <div>
+        <label for="video_box">
+          Video
+        </label>
+
+        <input type="text" id="video_box" name="query_video" value="<%= @the_video.video %>">
+      </div>
+
+      <div>
+        <label for="caption_box">
+          Caption
+        </label>
+
+        <textarea id="caption_box" name="query_caption"><%= @the_video.caption %></textarea>
+      </div>
+
+      <div>
+        <label for="views_box">
+          Views
+        </label>
+
+        <input type="text" id="views_box" name="query_views" value="<%= @the_video.views %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="viewed_by_user_box" name="query_viewed_by_user" value="1" <%= "checked" if @the_video.viewed_by_user %>>
+
+        <label for="viewed_by_user_box">
+            Viewed by user
+        </label>
+      </div>
+
+      <button>
+        Update video
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
