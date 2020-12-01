@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2020_12_01_181056) do
     t.integer "owner_id"
     t.string "video"
     t.text "caption"
-    t.integer "views"
-    t.boolean "viewed_by_user"
+    t.integer "views", default: 0
+    t.boolean "viewed_by_user", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

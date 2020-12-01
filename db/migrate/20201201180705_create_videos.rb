@@ -4,8 +4,8 @@ class CreateVideos < ActiveRecord::Migration[6.0]
       t.integer :owner_id
       t.string :video
       t.text :caption
-      t.integer :views
-      t.boolean :viewed_by_user
+      t.integer :views, { :default => 0 }
+      t.boolean :viewed_by_user, { :default => false }
 
       t.timestamps
     end
