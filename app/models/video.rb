@@ -16,7 +16,7 @@ class Video < ApplicationRecord
 
   has_many(:comments, { :class_name => "Comment", :foreign_key => "video_id", :dependent => :destroy })
 
-  belongs_to(:owner, { :required => false, :class_name => "User", :foreign_key => "owner_id" })
+  belongs_to(:owner, { :required => true, :class_name => "User", :foreign_key => "owner_id" })
 
   
 end

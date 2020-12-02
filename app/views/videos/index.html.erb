@@ -15,13 +15,12 @@
     </h2>
 
     <form action="/insert_video" method="post">
-      <div>
-        <label for="owner_id_box">
-          Owner
-        </label>
-
+      <%# <div>
+          <label for="owner_id_box">
+            Owner
+          </label>
         <input type="text" id="owner_id_box" name="query_owner_id">
-      </div>
+      </div> %>
 
       <div>
         <label for="video_box">
@@ -39,19 +38,19 @@
         <textarea id="caption_box" name="query_caption" rows="3"></textarea>
       </div>
 
-      <div>
+      <%# <div>
         <label for="views_box">
           Views
         </label>
 
         <input type="text" id="views_box" name="query_views">
-      </div>
+      </div> %>
 
-      <div>
+      <%# <div>
         <input type="checkbox" id="viewed_by_user_box" name="query_viewed_by_user" value="1">
 
         <label for="viewed_by_user_box">Viewed by user</label>
-      </div>
+      </div> %>
 
       <button>
         Create video

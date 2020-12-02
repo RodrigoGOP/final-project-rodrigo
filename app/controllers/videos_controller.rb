@@ -19,11 +19,9 @@ class VideosController < ApplicationController
 
   def create
     the_video = Video.new
-    the_video.owner_id = params.fetch("query_owner_id")
+    the_video.owner_id = @current_user.id
     the_video.video = params.fetch("query_video")
     the_video.caption = params.fetch("query_caption")
-    the_video.views = params.fetch("query_views")
-    the_video.viewed_by_user = params.fetch("query_viewed_by_user", false)
 
     if the_video.valid?
       the_video.save
@@ -37,11 +35,9 @@ class VideosController < ApplicationController
     the_id = params.fetch("path_id")
     the_video = Video.where({ :id => the_id }).at(0)
 
-    the_video.owner_id = params.fetch("query_owner_id")
+    the_video.owner_id = @current_user.id
     the_video.video = params.fetch("query_video")
     the_video.caption = params.fetch("query_caption")
-    the_video.views = params.fetch("query_views")
-    the_video.viewed_by_user = params.fetch("query_viewed_by_user", false)
 
     if the_video.valid?
       the_video.save
